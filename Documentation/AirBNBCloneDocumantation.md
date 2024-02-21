@@ -1,15 +1,6 @@
-<p align="center">
-  <img src="img/front.png" alt="HolbertonBnB logo">
-</p>
+# AirBNB Clone Console Documentation
 
-<h1 align="center">HolbertonBnB</h1>
-<p align="center">An AirBnB clone.</p>
-
-<p align="center">
-  <img src="img/console.png" alt="HolbertonBnB logo">
-</p>
-
----
+## The docs will be based on the tasks 3 to task 17
 
 ## Description :house
 
@@ -17,28 +8,6 @@ HolbertonBnB is a complete web application, integrating database storage,
 a back-end API, and front-end interfacing in a clone of AirBnB.
 
 The project currently only implements the back-end console.
-
-## Classes :cl
-
-HolbertonBnB utilizes the following classes:
-
-|     | BaseModel | FileStorage | User | State | City | Amenity | Place | Review |
-| --- | --------- | ----------- | -----| ----- | -----| ------- | ----- | ------ |
-| **PUBLIC INSTANCE ATTRIBUTES** | `id`<br>`created_at`<br>`updated_at` | | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` |
-| **PUBLIC INSTANCE METHODS** | `save`<br>`to_dict` | `all`<br>`new`<br>`save`<br>`reload` | "" | "" | "" | "" | "" | "" |
-| **PUBLIC CLASS ATTRIBUTES** | | | `email`<br>`password`<br>`first_name`<br>`last_name`| `name` | `state_id`<br>`name` | `name` | `city_id`<br>`user_id`<br>`name`<br>`description`<br>`number_rooms`<br>`number_bathrooms`<br>`max_guest`<br>`price_by_night`<br>`latitude`<br>`longitude`<br>`amenity_ids` | `place_id`<br>`user_id`<br>`text` |
-| **PRIVATE CLASS ATTRIBUTES** | | `file_path`<br>`objects` | | | | | | |
-
-## Storage :baggage_claim
-
-The above classes are handled by the abstracted storage engine defined in the
-`FileStorage` class.
-
-Every time the backend is initialized, HolbertonBnB instantiates an instance of
-`FileStorage` called `storage`. The `storage` object is loaded/re-loaded from
-any class instances stored in the JSON file `file.json`. As class instances are
-created, updated, or deleted, the `storage` object is used to register
-corresponding changes in the `file.json`.
 
 ## Console :computer
 
@@ -281,180 +250,16 @@ Alternatively, you can specify a single test file to run at a time:
 python3 unittest -m tests/test_console.py
 ```
 
-# 0x00. AirBnB clone - The console Docs
-
-* By - Dennis Nderitu and Lucy Njeri
-
-* Weight : 5
-
 ## Concepts
 
 * [Python packages](https://intranet.alxswe.com/concepts/66)
 * [AirBnB clone](https://intranet.alxswe.com/concepts/74)
 
-First step: Write a command interpreter to manage your AirBnB objects.
-This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…
+# 0x00. AirBnB clone - The console Docs
 
-Each task is linked and will help you to:
+* By - Dennis Nderitu and Lucy Njeri
 
-* put in place a parent class (called BaseModel) to take care of the initialization, serialization and deserialization of your future instances
-* create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
-* create all classes used for AirBnB (User, State, City, Place…) that inherit from BaseModel
-* create the first abstracted storage engine of the project: File storage.
-* create all unittests to validate all our classes and storage engine
-
-### What’s a command interpreter?
-
-Do you remember the Shell? It’s exactly the same but limited to a specific use-case. In our case, we want to be able to manage the objects of our project:
-
-* Create a new object (ex: a new User or a new Place)
-* Retrieve an object from a file, a database etc…
-* Do operations on objects (count, compute stats, etc…)
-* Update attributes of an object
-* Destroy an object
-
-### Resources
-
-* Read or watch:
-
-* [cmd module](https://intranet.alxswe.com/rltoken/8ecCwE6veBmm3Nppw4hz5A)
-
-* [cmd module in depth](https://intranet.alxswe.com/rltoken/uEy4RftSdKypoig9NFTvCg)
-
-* packages concept page
-* [uuid module](https://intranet.alxswe.com/rltoken/KfL9TqwdI69W6ttG6gTPPQ)
-* [datetime](https://intranet.alxswe.com/rltoken/1d8I3jSKgnYAtA1IZfEDpA)
-* [unittest module](https://intranet.alxswe.com/rltoken/IlFiMB8UmqBG2CxA0AD3jA)
-* [args/kwargs](https://intranet.alxswe.com/rltoken/C_a0EKbtvKdMcwIAuSIZng)
-* [Python test cheatsheet](https://intranet.alxswe.com/rltoken/tgNVrKKzlWgS4dfl3mQklw)
-* [cmd module wiki page](https://intranet.alxswe.com/rltoken/EvcaH9uTLlauxuw03WnkOQ)
-* [python unittest](https://intranet.alxswe.com/rltoken/begh14KQA-3ov29KvD_HvA)
-
-## General
-
-* How to create a Python package
-* How to create a command interpreter in Python using the cmd module
-* What is Unit testing and how to implement it in a large project
-* How to serialize and deserialize a Class
-* How to write and read a JSON file
-* How to manage datetime
-* What is an UUID
-* What is *args and how to use it
-* What is **kwargs and how to use it
-* How to handle named arguments in a function
-
-## More Info
-
-### Execution
-
-* Your shell should work like this in interactive mode:
-
-```
-$ ./console.py
-(hbnb) help
-
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-
-(hbnb)
-(hbnb)
-(hbnb) quit
-$
-```
-
-But also in non-interactive mode: (like the Shell project in C)
-
-```
-$ echo "help" | ./console.py
-(hbnb)
-
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-(hbnb)
-$
-$ cat test_help
-help
-$
-$ cat test_help | ./console.py
-(hbnb)
-
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-(hbnb)
-$
-```
-
-All tests should also pass in non-interactive mode: `$ echo "python3 -m unittest discover tests" | bash`
-
-## Tasks
-
-### 0. README, AUTHORS
-
-* Write a `README.md`:
-  * description of the project
-  * description of the command interpreter:
-    * how to start it
-    * how to use it
-    * examples
-
-* You should have an `AUTHORS` file at the root of your repository, listing all individuals having contributed content to the repository. For format, reference [Docker’s AUTHORS page](https://intranet.alxswe.com/rltoken/_8n_z3pf5HWi1l7uv1E9iA)
-
-* You should use branches and pull requests on GitHub - it will help you as team to organize your work
-
-**Repo:**
-
-* GitHub repository: `AirBnB_clone`
-* File: `README.md, AUTHORS`
-
-### 1. Be pycodestyle compliant
-
-Write beautiful code that passes the pycodestyle checks.
-
-**Repo:**
-
-* GitHub repository: `AirBnB_clone`
-
-### 2. Unittests
-
-* All your files, classes, functions must be tested with unit tests
-
-```
-guillaume@ubuntu:~/AirBnB$ python3 -m unittest discover tests
-...................................................................................
-...................................................................................
-.......................
-----------------------------------------------------------------------
-Ran 189 tests in 13.135s
-
-OK
-guillaume@ubuntu:~/AirBnB$
-```
-
-Note that this is just an example, the number of tests you create can be different from the above example.
-
-### Warning
-
-* Unit tests must also pass in non-interactive mode:
-
-```
-guillaume@ubuntu:~/AirBnB$ echo "python3 -m unittest discover tests" | bash
-...................................................................................
-...................................................................................
-.......................
-----------------------------------------------------------------------
-Ran 189 tests in 13.135s
-
-OK
-guillaume@ubuntu:~/AirBnB$
-```
-
-**Repo:**
-
-* GitHub repository: `AirBnB_clone`
-* File: `tests/`
+## TASKS
 
 ### 3. BaseModel
 
@@ -481,6 +286,7 @@ Write a class BaseModel that defines all common attributes/methods for other cla
   * This method will be the first piece of the serialization/deserialization process: create a dictionary representation with “simple object type” of our `BaseModel`
 
 ```
+
 guillaume@ubuntu:~/AirBnB$ cat test_base_model.py
 #!/usr/bin/python3
 from models.base_model import BaseModel
@@ -516,6 +322,45 @@ guillaume@ubuntu:~/AirBnB$
 
 * GitHub repository: `AirBnB_clone`
 * File: `models/base_model.py, models/__init__.py, tests/`
+
+#### Solution
+
+```
+class BaseModel:
+    """Represents the BaseModel of the HBnB project."""
+
+  def __init__(self):
+        """Initialize a new BaseModel.
+        Args:
+            *args (any): Unused.
+            **kwargs (dict): Key/value pairs of attributes.
+        """
+        tform = "%Y-%m-%dT%H:%M:%S.%f"
+        self.id = str(uuid4())
+        self.created_at = datetime.today()
+        self.updated_at = datetime.today()
+
+    def save(self):
+        """Update updated_at with the current datetime."""
+        self.updated_at = datetime.today()
+        models.storage.save()
+
+    def to_dict(self):
+        """Return the dictionary of the BaseModel instance.
+        Includes the key/value pair __class__ representing
+        the class name of the object.
+        """
+        rdict = self.__dict__.copy()
+        rdict["created_at"] = self.created_at.isoformat()
+        rdict["updated_at"] = self.updated_at.isoformat()
+        rdict["__class__"] = self.__class__.__name__
+        return rdict
+
+    def __str__(self):
+        """Return the print/str representation of the BaseModel instance."""
+        clname = self.__class__.__name__
+        return "[{}] ({}) {}".format(clname, self.id, self.__dict__)
+```
 
 ### 4. Create BaseModel from dictionary
 
@@ -593,6 +438,54 @@ guillaume@ubuntu:~/AirBnB$
 
 * GitHub repository: `AirBnB_clone`
 * File: `models/base_model.py, tests/`
+
+#### Solution
+
+```
+class BaseModel:
+    """Represents the BaseModel of the HBnB project."""
+
+  def __init__(self, *args, **kwargs):
+          """Initialize a new BaseModel.
+          Args:
+              *args (any): Unused.
+              **kwargs (dict): Key/value pairs of attributes.
+          """
+          tform = "%Y-%m-%dT%H:%M:%S.%f"
+          self.id = str(uuid4())
+          self.created_at = datetime.today()
+          self.updated_at = datetime.today()
+          if len(kwargs) != 0:
+              for k, v in kwargs.items():
+                  if k == "created_at" or k == "updated_at":
+                      self.__dict__[k] = datetime.strptime(v, tform)
+                  else:
+                      self.__dict__[k] = v
+          else:
+              models.storage.new(self)
+
+      def save(self):
+          """Update updated_at with the current datetime."""
+          self.updated_at = datetime.today()
+          models.storage.save()
+
+      def to_dict(self):
+          """Return the dictionary of the BaseModel instance.
+          Includes the key/value pair __class__ representing
+          the class name of the object.
+          """
+          rdict = self.__dict__.copy()
+          rdict["created_at"] = self.created_at.isoformat()
+          rdict["updated_at"] = self.updated_at.isoformat()
+          rdict["__class__"] = self.__class__.__name__
+          return rdict
+
+      def __str__(self):
+          """Return the print/str representation of the BaseModel instance."""
+          clname = self.__class__.__name__
+          return "[{}] ({}) {}".format(clname, self.id, self.__dict__)
+
+```
 
 ### 5. Store first object
 
@@ -707,6 +600,66 @@ guillaume@ubuntu:~/AirBnB$
 * GitHub repository: `AirBnB_clone`
 * File: `models/engine/file_storage.py, models/engine/__init__.py, models/__init__.py, models/base_model.py, tests/`
 
+#### Solution
+
+**models/engine/file_storage.py**
+
+```
+class FileStorage:
+    """ Represent an abstracted storage engine.
+    Attributes:
+        __file_path (str): The name of the file to save objects to.
+        __objects (dict): A dictionary of instantiated objects.
+    """
+
+    __file_path = "file.json"
+    __objects = {}
+
+    def all(self):
+        """returns the dictionary __objects"""
+        return FileStorage.__objects
+
+    def new(self, obj):
+        """Set in __objects obj with key <obj_class_name>.id"""
+        ocname = obj.__class__.__name__
+        FileStorage.__objects["{}.{}".format(ocname, obj.id)] = obj
+
+    def save(self):
+        """Serialize __objects to the JSON file __file_path."""
+        odict = FileStorage.__objects
+        objdict = {obj: odict[obj].to_dict() for obj in odict.keys()}
+        with open(FileStorage.__file_path, "w") as f:
+            json.dump(objdict, f)
+
+    def reload(self):
+        """Deserialize the JSON file __file_path to __objects, if it exists"""
+        try:
+            with open(FileStorage.__file_path) as f:
+                objdict = json.load(f)
+                for o in objdict.values():
+                    cls_name = o["__class__"]
+                    del o["__class__"]
+                    self.new(eval(cls_name)(**o))
+        except FileNotFoundError:
+            return
+```
+
+`models/**init**.py`
+
+```
+from models.engine.file_storage import FileStorage
+
+
+storage = FileStorage()
+storage.reload()
+```
+
+**models/base_model.py**
+
+```
+
+```
+
 ### 6. Console 0.0.1
 
 Write a program called `console.py` that contains the entry point of the command interpreter:
@@ -756,6 +709,39 @@ guillaume@ubuntu:~/AirBnB$
 
 * GitHub repository: `AirBnB_clone`
 * File: `console.py`
+
+#### Solution
+
+`console.py File`
+
+```
+class HBNBCommand(cmd.Cmd):
+    """Defines the HolbertonBnB command interpreter.
+    Attributes:
+        prompt (str): The command prompt.
+    """
+
+    prompt = "(hbnb) "
+    __classes = {
+        "BaseModel",
+    }
+
+    def emptyline(self):
+        """Do nothing upon receiving an empty line."""
+        pass
+
+    def do_quit(self, arg):
+        """Quit command to exit the program."""
+        return True
+
+    def do_EOF(self, arg):
+        """EOF signal to exit the program."""
+        print("")
+        return True
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
+```
 
 ### 7. Console 0.1
 
@@ -837,6 +823,106 @@ guillaume@ubuntu:~/AirBnB$ ./console.py
 
 * GitHub repository: `AirBnB_clone`
 * File: `console.py`
+
+#### Solution
+
+`console.py File`
+
+```
+def do_create(self, arg):
+        """Usage: create <class>
+        Create a new class instance and print its id.
+        """
+        argl = parse(arg)
+        if len(argl) == 0:
+            print("** class name missing **")
+        elif argl[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+        else:
+            print(eval(argl[0])().id)
+            storage.save()
+
+    def do_show(self, arg):
+        """Usage: show <class> <id> or <class>.show(<id>)
+        Display the string representation of a class instance of a given id.
+        """
+        argl = parse(arg)
+        objdict = storage.all()
+        if len(argl) == 0:
+            print("** class name missing **")
+        elif argl[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+        elif len(argl) == 1:
+            print("** instance id missing **")
+        elif "{}.{}".format(argl[0], argl[1]) not in objdict:
+            print("** no instance found **")
+        else:
+            print(objdict["{}.{}".format(argl[0], argl[1])])
+
+    def do_destroy(self, arg):
+        """Usage: destroy <class> <id> or <class>.destroy(<id>)
+        Delete a class instance of a given id."""
+        argl = parse(arg)
+        objdict = storage.all()
+        if len(argl) == 0:
+            print("** class name missing **")
+        elif argl[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+        elif len(argl) == 1:
+            print("** instance id missing **")
+        elif "{}.{}".format(argl[0], argl[1]) not in objdict.keys():
+            print("** no instance found **")
+        else:
+            del objdict["{}.{}".format(argl[0], argl[1])]
+            storage.save()
+
+    def do_all(self, arg):
+        """Usage: all or all <class> or <class>.all()
+        Display string representations of all instances of a given class.
+        If no class is specified, displays all instantiated objects."""
+        argl = parse(arg)
+        if len(argl) > 0 and argl[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+        else:
+            objl = []
+            for obj in storage.all().values():
+                if len(argl) > 0 and argl[0] == obj.__class__.__name__:
+                    objl.append(obj.__str__())
+                elif len(argl) == 0:
+                    objl.append(obj.__str__())
+            print(objl)
+
+    def do_update(self, arg):
+        """Usage: update <class> <id> <attribute_name> <attribute_value> or
+       <class>.update(<id>, <attribute_name>, <attribute_value>) or
+       <class>.update(<id>, <dictionary>)
+        Update a class instance of a given id by adding or updating
+        a given attribute key/value pair or dictionary."""
+        argl = parse(arg)
+        objdict = storage.all()
+
+        if len(argl) == 0:
+            print("** class name missing **")
+            return False
+        if argl[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+            return False
+        if len(argl) == 1:
+            print("** instance id missing **")
+            return False
+        if "{}.{}".format(argl[0], argl[1]) not in objdict.keys():
+            print("** no instance found **")
+            return False
+        if len(argl) == 2:
+            print("** attribute name missing **")
+            return False
+        if len(argl) == 3:
+            try:
+                type(eval(argl[2])) != dict
+            except NameError:
+                print("** value missing **")
+                return False
+```
 
 ### 8. First User
 
@@ -927,6 +1013,54 @@ guillaume@ubuntu:~/AirBnB$
 * GitHub repository: `AirBnB_clone`
 * File: `console.py`
 
+#### Solution
+
+`models/user.py`
+
+```
+#!/usr/bin/python3
+"""This module creates a User class, Defines the User class."""
+from models.base_model import BaseModel
+
+
+class User(BaseModel):
+    """Class for managing user objects
+    Represent a User.
+    Attributes:
+        email (str): the email of the user.
+        password (str): The password of the user.
+        first_name (str): The first name of the user.
+        last_name (str): the last name of the user.
+    """
+
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""
+```
+
+`models/engine/file_storage.py`
+
+```
+from models.user import User
+```
+
+`console.py`
+
+```
+class HBNBCommand(cmd.Cmd):
+    """Defines the HolbertonBnB command interpreter.
+    Attributes:
+        prompt (str): The command prompt.
+    """
+
+    prompt = "(hbnb) "
+    __classes = {
+        "BaseModel",
+        "User"
+    }
+```
+
 ### 9. More classes
 
 Write all those classes that inherit from `BaseModel`:
@@ -970,6 +1104,127 @@ Write all those classes that inherit from `BaseModel`:
 * GitHub repository: `AirBnB_clone`
 * File: `console.py`
 
+#### Solution
+
+`models/state.py`
+
+```
+#!/usr/bin/python3
+"""This module creates a User class, Defines the State class."""
+from models.base_model import BaseModel
+
+
+class State(BaseModel):
+
+    """Class for managing state objects
+    Represent a state.
+    Attributes:
+        name (str): The name of the state.
+    """
+
+    name = ""
+```
+
+`models/city.py`
+
+```
+#!/usr/bin/python3
+"""This module creates a City class"""
+from models.base_model import BaseModel
+
+
+class City(BaseModel):
+    """Class for managing city objects
+    Represent a city.
+    Attributes:
+        state_id (str): the state id.
+        name (str): The name of the city.
+    """
+    state_id = ""
+    name = ""
+```
+
+`models/amenity.py`
+
+```
+#!/usr/bin/python3
+"""This module creates the Amenity class"""
+from models.base_model import BaseModel
+
+
+class Amenity(BaseModel):
+    """Class for managing amenity objects
+    Represent an amenity.
+    Attributes:
+    name (str): The name of the amenity.
+    """
+    name = ""
+```
+
+`models/place.py`
+
+```
+#!/usr/bin/python3
+"""This module creates a Place class,Defines the Place class"""
+from models.base_model import BaseModel
+
+
+class Place(BaseModel):
+
+    """Class for managing place objects
+    Represent a place.
+    Attributes:
+        city_id (str): The City id.
+        user_id (str): theUser id.
+        name (str): The name of the place.
+        description (str): the description of the place.
+        number_rooms (int): the number of rooms of the place.
+        number_bathrooms (int): The number of bathrooms of the place.
+        max_guest (int): The maximum number of guests of the place.
+        price_by_night (int): The price by nght of the place.
+        latitude (float): The latitude of the place.
+        longitude (float): The longitude of the place.
+        amenity_ids (list): A list of Amenity ids.
+    """
+
+    city_id = ""
+    user_id = ""
+    name = ""
+    description = ""
+    number_rooms = 0
+    number_bathrooms = 0
+    max_guest = 0
+    price_by_night = 0
+    latitude = 0.0
+    longitude = 0.0
+    amenity_ids = []
+```
+
+`models/review.py`
+
+```
+#!/usr/bin/python3
+"""This module creates a Review class, Defines the Review class."""
+from models.base_model import BaseModel
+
+
+class Review(BaseModel):
+
+    """Class for managing review objects
+    Represent a review.
+    Attributes:
+        place_id (str): The Place id.
+        user_id (str): the User id.
+        text (str): The text of the review.
+    """
+
+    place_id = ""
+    user_id = ""
+    text = ""
+```
+
+## Advanced Tasks
+
 ### 10. Console 1.0
 
 Update `FileStorage` to manage correctly serialization and deserialization of all our new classes: `Place`, `State`, `City`, `Amenity` and `Review`
@@ -984,6 +1239,42 @@ Enjoy your first console!
 
 * GitHub repository: `AirBnB_clone`
 * File: `console.py`
+
+#### Solution
+
+`console.py`
+
+```
+class HBNBCommand(cmd.Cmd):
+    """Defines the HolbertonBnB command interpreter.
+    Attributes:
+        prompt (str): The command prompt.
+    """
+
+    prompt = "(hbnb) "
+    __classes = {
+        "BaseModel",
+        "User",
+        "State",
+        "City",
+        "Place",
+        "Amenity",
+        "Review"
+    }
+```
+
+`models/engine/file_storage.py`
+
+```
+#!/usr/bin/python3
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
+```
 
 ### 11. All instances by class name
 
@@ -1000,6 +1291,67 @@ guillaume@ubuntu:~/AirBnB$ ./console.py
 
 * GitHub repository: `AirBnB_clone`
 * File: `console.py`
+
+#### Solution
+
+`console.py`
+
+```
+class HBNBCommand(cmd.Cmd):
+    """Defines the HolbertonBnB command interpreter.
+    Attributes:
+        prompt (str): The command prompt.
+    """
+
+    prompt = "(hbnb) "
+    __classes = {
+        "BaseModel",
+        "User",
+        "State",
+        "City",
+        "Place",
+        "Amenity",
+        "Review"
+    }
+
+
+    def default(self, arg):
+        """Default behavior for cmd module when input is invalid"""
+        argdict = {
+            "all": self.do_all,
+#            "show": self.do_show,
+#            "destroy": self.do_destroy,
+#            "count": self.do_count,
+#            "update": self.do_update
+        }
+        match = re.search(r"\.", arg)
+        if match is not None:
+            argl = [arg[:match.span()[0]], arg[match.span()[1]:]]
+            match = re.search(r"\((.*?)\)", argl[1])
+            if match is not None:
+                command = [argl[1][:match.span()[0]], match.group()[1:-1]]
+                if command[0] in argdict.keys():
+                    call = "{} {}".format(argl[0], command[1])
+                    return argdict[command[0]](call)
+        print("*** Unknown syntax: {}".format(arg))
+        return False
+
+    def do_all(self, arg):
+        """Usage: all or all <class> or <class>.all()
+        Display string representations of all instances of a given class.
+        If no class is specified, displays all instantiated objects."""
+        argl = parse(arg)
+        if len(argl) > 0 and argl[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+        else:
+            objl = []
+            for obj in storage.all().values():
+                if len(argl) > 0 and argl[0] == obj.__class__.__name__:
+                    objl.append(obj.__str__())
+                elif len(argl) == 0:
+                    objl.append(obj.__str__())
+            print(objl)
+```
 
 ### 12. Count instances
 
@@ -1018,6 +1370,92 @@ guillaume@ubuntu:~/AirBnB$ ./console.py
 
 * GitHub repository: `AirBnB_clone`
 * File: `console.py`
+
+#### Solution
+
+`console.py`
+
+```
+#!/usr/bin/python3
+"""Defines the HBnB console."""
+import cmd
+import re
+from shlex import split
+from models import storage
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
+
+
+def parse(arg):
+    curly_braces = re.search(r"\{(.*?)\}", arg)
+    brackets = re.search(r"\[(.*?)\]", arg)
+    if curly_braces is None:
+        if brackets is None:
+            return [i.strip(",") for i in split(arg)]
+        else:
+            lexer = split(arg[:brackets.span()[0]])
+            retl = [i.strip(",") for i in lexer]
+            retl.append(brackets.group())
+            return retl
+    else:
+        lexer = split(arg[:curly_braces.span()[0]])
+        retl = [i.strip(",") for i in lexer]
+        retl.append(curly_braces.group())
+        return retl
+
+class HBNBCommand(cmd.Cmd):
+    """Defines the HolbertonBnB command interpreter.
+    Attributes:
+        prompt (str): The command prompt.
+    """
+
+    prompt = "(hbnb) "
+    __classes = {
+        "BaseModel",
+        "User",
+        "State",
+        "City",
+        "Place",
+        "Amenity",
+        "Review"
+    }
+
+    def default(self, arg):
+        """Default behavior for cmd module when input is invalid"""
+        argdict = {
+            "all": self.do_all,
+#            "show": self.do_show,
+#            "destroy": self.do_destroy,
+            "count": self.do_count,
+#            "update": self.do_update
+        }
+        match = re.search(r"\.", arg)
+        if match is not None:
+            argl = [arg[:match.span()[0]], arg[match.span()[1]:]]
+            match = re.search(r"\((.*?)\)", argl[1])
+            if match is not None:
+                command = [argl[1][:match.span()[0]], match.group()[1:-1]]
+                if command[0] in argdict.keys():
+                    call = "{} {}".format(argl[0], command[1])
+                    return argdict[command[0]](call)
+        print("*** Unknown syntax: {}".format(arg))
+        return False
+
+    def do_count(self, arg):
+        """Usage: count <class> or <class>.count()
+        Retrieve the number of instances of a given class."""
+        argl = parse(arg)
+        count = 0
+        for obj in storage.all().values():
+            if argl[0] == obj.__class__.__name__:
+                count += 1
+        print(count)
+```
 
 ### 13. Show
 
@@ -1040,6 +1478,99 @@ guillaume@ubuntu:~/AirBnB$ ./console.py
 
 * GitHub repository: `AirBnB_clone`
 * File: `console.py`
+
+#### Solution
+
+`console.py`
+
+```
+#!/usr/bin/python3
+"""Defines the HBnB console."""
+import cmd
+import re
+from shlex import split
+from models import storage
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
+
+
+def parse(arg):
+    curly_braces = re.search(r"\{(.*?)\}", arg)
+    brackets = re.search(r"\[(.*?)\]", arg)
+    if curly_braces is None:
+        if brackets is None:
+            return [i.strip(",") for i in split(arg)]
+        else:
+            lexer = split(arg[:brackets.span()[0]])
+            retl = [i.strip(",") for i in lexer]
+            retl.append(brackets.group())
+            return retl
+    else:
+        lexer = split(arg[:curly_braces.span()[0]])
+        retl = [i.strip(",") for i in lexer]
+        retl.append(curly_braces.group())
+        return retl
+
+class HBNBCommand(cmd.Cmd):
+    """Defines the HolbertonBnB command interpreter.
+    Attributes:
+        prompt (str): The command prompt.
+    """
+
+    prompt = "(hbnb) "
+    __classes = {
+        "BaseModel",
+        "User",
+        "State",
+        "City",
+        "Place",
+        "Amenity",
+        "Review"
+    }
+
+    def default(self, arg):
+        """Default behavior for cmd module when input is invalid"""
+        argdict = {
+            "all": self.do_all,
+            "show": self.do_show,
+            "destroy": self.do_destroy,
+            "count": self.do_count,
+            "update": self.do_update
+        }
+        match = re.search(r"\.", arg)
+        if match is not None:
+            argl = [arg[:match.span()[0]], arg[match.span()[1]:]]
+            match = re.search(r"\((.*?)\)", argl[1])
+            if match is not None:
+                command = [argl[1][:match.span()[0]], match.group()[1:-1]]
+                if command[0] in argdict.keys():
+                    call = "{} {}".format(argl[0], command[1])
+                    return argdict[command[0]](call)
+        print("*** Unknown syntax: {}".format(arg))
+        return False
+
+    def do_show(self, arg):
+        """Usage: show <class> <id> or <class>.show(<id>)
+        Display the string representation of a class instance of a given id.
+        """
+        argl = parse(arg)
+        objdict = storage.all()
+        if len(argl) == 0:
+            print("** class name missing **")
+        elif argl[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+        elif len(argl) == 1:
+            print("** instance id missing **")
+        elif "{}.{}".format(argl[0], argl[1]) not in objdict:
+            print("** no instance found **")
+        else:
+            print(objdict["{}.{}".format(argl[0], argl[1])])
+```
 
 ### 14. Destroy
 
@@ -1065,6 +1596,99 @@ guillaume@ubuntu:~/AirBnB$ ./console.py
 
 * GitHub repository: `AirBnB_clone`
 * File: `console.py`
+
+#### Solution
+
+`console.py`
+
+```
+#!/usr/bin/python3
+"""Defines the HBnB console."""
+import cmd
+import re
+from shlex import split
+from models import storage
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
+
+
+def parse(arg):
+    curly_braces = re.search(r"\{(.*?)\}", arg)
+    brackets = re.search(r"\[(.*?)\]", arg)
+    if curly_braces is None:
+        if brackets is None:
+            return [i.strip(",") for i in split(arg)]
+        else:
+            lexer = split(arg[:brackets.span()[0]])
+            retl = [i.strip(",") for i in lexer]
+            retl.append(brackets.group())
+            return retl
+    else:
+        lexer = split(arg[:curly_braces.span()[0]])
+        retl = [i.strip(",") for i in lexer]
+        retl.append(curly_braces.group())
+        return retl
+
+class HBNBCommand(cmd.Cmd):
+    """Defines the HolbertonBnB command interpreter.
+    Attributes:
+        prompt (str): The command prompt.
+    """
+
+    prompt = "(hbnb) "
+    __classes = {
+        "BaseModel",
+        "User",
+        "State",
+        "City",
+        "Place",
+        "Amenity",
+        "Review"
+    }
+
+    def default(self, arg):
+        """Default behavior for cmd module when input is invalid"""
+        argdict = {
+            "all": self.do_all,
+            "show": self.do_show,
+            "destroy": self.do_destroy,
+            "count": self.do_count,
+            "update": self.do_update
+        }
+        match = re.search(r"\.", arg)
+        if match is not None:
+            argl = [arg[:match.span()[0]], arg[match.span()[1]:]]
+            match = re.search(r"\((.*?)\)", argl[1])
+            if match is not None:
+                command = [argl[1][:match.span()[0]], match.group()[1:-1]]
+                if command[0] in argdict.keys():
+                    call = "{} {}".format(argl[0], command[1])
+                    return argdict[command[0]](call)
+        print("*** Unknown syntax: {}".format(arg))
+        return False
+
+    def do_destroy(self, arg):
+        """Usage: destroy <class> <id> or <class>.destroy(<id>)
+        Delete a class instance of a given id."""
+        argl = parse(arg)
+        objdict = storage.all()
+        if len(argl) == 0:
+            print("** class name missing **")
+        elif argl[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+        elif len(argl) == 1:
+            print("** instance id missing **")
+        elif "{}.{}".format(argl[0], argl[1]) not in objdict.keys():
+            print("** no instance found **")
+        else:
+            del objdict["{}.{}".format(argl[0], argl[1])]
+            storage.save()
+```
 
 ### 15. Update
 
@@ -1092,6 +1716,131 @@ guillaume@ubuntu:~/AirBnB$ ./console.py
 * GitHub repository: `AirBnB_clone`
 * File: `console.py`
 
+#### Solution
+
+`console.py`
+
+```
+#!/usr/bin/python3
+"""Defines the HBnB console."""
+import cmd
+import re
+from shlex import split
+from models import storage
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
+
+
+def parse(arg):
+    curly_braces = re.search(r"\{(.*?)\}", arg)
+    brackets = re.search(r"\[(.*?)\]", arg)
+    if curly_braces is None:
+        if brackets is None:
+            return [i.strip(",") for i in split(arg)]
+        else:
+            lexer = split(arg[:brackets.span()[0]])
+            retl = [i.strip(",") for i in lexer]
+            retl.append(brackets.group())
+            return retl
+    else:
+        lexer = split(arg[:curly_braces.span()[0]])
+        retl = [i.strip(",") for i in lexer]
+        retl.append(curly_braces.group())
+        return retl
+
+class HBNBCommand(cmd.Cmd):
+    """Defines the HolbertonBnB command interpreter.
+    Attributes:
+        prompt (str): The command prompt.
+    """
+
+    prompt = "(hbnb) "
+    __classes = {
+        "BaseModel",
+        "User",
+        "State",
+        "City",
+        "Place",
+        "Amenity",
+        "Review"
+    }
+
+    def default(self, arg):
+        """Default behavior for cmd module when input is invalid"""
+        argdict = {
+            "all": self.do_all,
+            "show": self.do_show,
+            "destroy": self.do_destroy,
+            "count": self.do_count,
+            "update": self.do_update
+        }
+        match = re.search(r"\.", arg)
+        if match is not None:
+            argl = [arg[:match.span()[0]], arg[match.span()[1]:]]
+            match = re.search(r"\((.*?)\)", argl[1])
+            if match is not None:
+                command = [argl[1][:match.span()[0]], match.group()[1:-1]]
+                if command[0] in argdict.keys():
+                    call = "{} {}".format(argl[0], command[1])
+                    return argdict[command[0]](call)
+        print("*** Unknown syntax: {}".format(arg))
+        return False
+
+    def do_update(self, arg):
+        """Usage: update <class> <id> <attribute_name> <attribute_value> or
+       <class>.update(<id>, <attribute_name>, <attribute_value>) or
+       <class>.update(<id>, <dictionary>)
+        Update a class instance of a given id by adding or updating
+        a given attribute key/value pair or dictionary."""
+        argl = parse(arg)
+        objdict = storage.all()
+
+        if len(argl) == 0:
+            print("** class name missing **")
+            return False
+        if argl[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+            return False
+        if len(argl) == 1:
+            print("** instance id missing **")
+            return False
+        if "{}.{}".format(argl[0], argl[1]) not in objdict.keys():
+            print("** no instance found **")
+            return False
+        if len(argl) == 2:
+            print("** attribute name missing **")
+            return False
+        if len(argl) == 3:
+            try:
+                type(eval(argl[2])) != dict
+            except NameError:
+                print("** value missing **")
+                return False
+
+        if len(argl) == 4:
+            obj = objdict["{}.{}".format(argl[0], argl[1])]
+            if argl[2] in obj.__class__.__dict__.keys():
+                valtype = type(obj.__class__.__dict__[argl[2]])
+                obj.__dict__[argl[2]] = valtype(argl[3])
+            else:
+                obj.__dict__[argl[2]] = argl[3]
+        elif type(eval(argl[2])) == dict:
+            obj = objdict["{}.{}".format(argl[0], argl[1])]
+            for k, v in eval(argl[2]).items():
+                if (k in obj.__class__.__dict__.keys() and
+                        type(obj.__class__.__dict__[k]) in {str, int, float}):
+                    valtype = type(obj.__class__.__dict__[k])
+                    obj.__dict__[k] = valtype(v)
+                else:
+                    obj.__dict__[k] = v
+        storage.save()
+```
+
 ### 16. Update from dictionary
 
 Update your command interpreter (`console.py`) to update an instance based on his ID with a dictionary: `<class name>.update(<id>, <dictionary representation>`).
@@ -1116,6 +1865,131 @@ guillaume@ubuntu:~/AirBnB$ ./console.py
 
 * GitHub repository: `AirBnB_clone`
 * File: `console.py`
+
+#### Solution
+
+`console.py`
+
+```
+#!/usr/bin/python3
+"""Defines the HBnB console."""
+import cmd
+import re
+from shlex import split
+from models import storage
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
+
+
+def parse(arg):
+    curly_braces = re.search(r"\{(.*?)\}", arg)
+    brackets = re.search(r"\[(.*?)\]", arg)
+    if curly_braces is None:
+        if brackets is None:
+            return [i.strip(",") for i in split(arg)]
+        else:
+            lexer = split(arg[:brackets.span()[0]])
+            retl = [i.strip(",") for i in lexer]
+            retl.append(brackets.group())
+            return retl
+    else:
+        lexer = split(arg[:curly_braces.span()[0]])
+        retl = [i.strip(",") for i in lexer]
+        retl.append(curly_braces.group())
+        return retl
+
+class HBNBCommand(cmd.Cmd):
+    """Defines the HolbertonBnB command interpreter.
+    Attributes:
+        prompt (str): The command prompt.
+    """
+
+    prompt = "(hbnb) "
+    __classes = {
+        "BaseModel",
+        "User",
+        "State",
+        "City",
+        "Place",
+        "Amenity",
+        "Review"
+    }
+
+    def default(self, arg):
+        """Default behavior for cmd module when input is invalid"""
+        argdict = {
+            "all": self.do_all,
+            "show": self.do_show,
+            "destroy": self.do_destroy,
+            "count": self.do_count,
+            "update": self.do_update
+        }
+        match = re.search(r"\.", arg)
+        if match is not None:
+            argl = [arg[:match.span()[0]], arg[match.span()[1]:]]
+            match = re.search(r"\((.*?)\)", argl[1])
+            if match is not None:
+                command = [argl[1][:match.span()[0]], match.group()[1:-1]]
+                if command[0] in argdict.keys():
+                    call = "{} {}".format(argl[0], command[1])
+                    return argdict[command[0]](call)
+        print("*** Unknown syntax: {}".format(arg))
+        return False
+
+    def do_update(self, arg):
+        """Usage: update <class> <id> <attribute_name> <attribute_value> or
+       <class>.update(<id>, <attribute_name>, <attribute_value>) or
+       <class>.update(<id>, <dictionary>)
+        Update a class instance of a given id by adding or updating
+        a given attribute key/value pair or dictionary."""
+        argl = parse(arg)
+        objdict = storage.all()
+
+        if len(argl) == 0:
+            print("** class name missing **")
+            return False
+        if argl[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+            return False
+        if len(argl) == 1:
+            print("** instance id missing **")
+            return False
+        if "{}.{}".format(argl[0], argl[1]) not in objdict.keys():
+            print("** no instance found **")
+            return False
+        if len(argl) == 2:
+            print("** attribute name missing **")
+            return False
+        if len(argl) == 3:
+            try:
+                type(eval(argl[2])) != dict
+            except NameError:
+                print("** value missing **")
+                return False
+
+        if len(argl) == 4:
+            obj = objdict["{}.{}".format(argl[0], argl[1])]
+            if argl[2] in obj.__class__.__dict__.keys():
+                valtype = type(obj.__class__.__dict__[argl[2]])
+                obj.__dict__[argl[2]] = valtype(argl[3])
+            else:
+                obj.__dict__[argl[2]] = argl[3]
+        elif type(eval(argl[2])) == dict:
+            obj = objdict["{}.{}".format(argl[0], argl[1])]
+            for k, v in eval(argl[2]).items():
+                if (k in obj.__class__.__dict__.keys() and
+                        type(obj.__class__.__dict__[k]) in {str, int, float}):
+                    valtype = type(obj.__class__.__dict__[k])
+                    obj.__dict__[k] = valtype(v)
+                else:
+                    obj.__dict__[k] = v
+        storage.save()
+```
 
 ### 17. Unittests for the Console
 
